@@ -108,22 +108,7 @@ Demonstrates advanced filtering and conditional logic.
 
 «Each query is documented with comments inside the corresponding SQL file explaining its purpose and expected output.»
 
----
 
-Project Structure
-
-project/
-│
-├── README.md
-├── schema.sql
-├── data.sql
-├── queries.sql
-├── docs/
-│   └── ERD.png
-└── csv/
-    └── data.csv
-
----
 
 ## Technical decisions
 
