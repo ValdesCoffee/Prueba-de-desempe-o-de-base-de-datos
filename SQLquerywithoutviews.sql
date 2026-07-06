@@ -114,19 +114,23 @@ VALUES
 (19,2026-05-23,'Aceros del Norte S.A.S','Cartagena','Guantes de Nitrilo',175,39944,'IN','PO-1040');
 
 -- CONSULTA 1
-SELECT 
-p.products_name,
-SUM (
-CASE
-   WHEN MovementType = 'IN' THEN m.quantity
-   WHEN MovementType = 'ON' THEN m.quantity
-END 
-) AS available_stocl 
-FROM movements_data
-   JOIN movements_data m
-   ON p.product_id = m.product_id
-GROUP BY p.product_id, m.product_id
-ORDER BY p.product_name; 
+SELECT
+    p.product_id,
+    p.productname,
+    SUM(
+        CASE
+            WHEN m.movementtype = 'IN' THEN m.quantity
+            WHEN m.movementtype = 'OUT' THEN -m.quantity
+        END
+    ) AS available_stock
+FROM products_name p
+JOIN movements_data m
+    ON p.product_id = m.product_id
+GROUP BY
+    p.product_id,
+    p.productname
+ORDER BY
+    p.productname;
 -- CONSULTA 2
 SELECT * FROM movements_data
 SELECT * FROM products_name
