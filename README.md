@@ -45,31 +45,10 @@ npm install
    psql -U user -d database_name -f sql/04_views.sql
    ```
 
-## Running json-server
 
-To inspect the cleaned data in JSON format before (or alongside) the SQL load:
-
-```bash
-json-server --watch data/clean/clean_data.json --port 3000
-```
-
-Available endpoints (example):
-```
-GET http://localhost:3000/records
-GET http://localhost:3000/records/:id
-```
 
 This allows quickly validating the shape and consistency of the data without needing the SQL database up and running.
 
-## Test users
-
-Test users defined to validate access to the database and to the created views:
-
-| User            | Password (test) | Role          |
-|-----------------|------------------|---------------|
-| admin_test      | admin123         | Administrator |
-| analyst_test    | analyst123       | Analyst       |
-| reader_test     | reader123        | Read-only     |
 
 > These users are for development/testing environments only and should not be used in production.
 
@@ -94,15 +73,6 @@ project/
 └── README.md
 ```
 
-## Role permissions
-
-| Role           | Tables  | Views          | Permissions                        |
-|----------------|---------|----------------|--------------------------------------|
-| Administrator  | All     | All            | SELECT, INSERT, UPDATE, DELETE       |
-| Analyst        | None    | All            | SELECT on views only                 |
-| Read-only      | None    | Public views   | Limited SELECT                       |
-
-Views are used as an abstraction layer so base tables aren't directly exposed to the analyst and read-only roles, restricting access to sensitive columns or internal business logic.
 
 ## Technical decisions
 
