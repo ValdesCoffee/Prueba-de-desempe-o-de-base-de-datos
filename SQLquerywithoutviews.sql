@@ -157,10 +157,13 @@ SELECT SUM(quantity)
 FROM movements_data
 WHERE suppliername = 'Suministros Global SAS';
 -- OTRA MANERA
-SELECT suppliername, SUM(quantity)
+SELECT
+    suppliername,
+    SUM(quantity) AS total_comprado
 FROM movements_data
+WHERE movementtype = 'IN'
 GROUP BY suppliername
-HAVING SUM(quantity) > 100,
+ORDER BY total_comprado DESC;
 -- CONSULTA 4
 -- Como administrador de operaciones necesito conocer cuáles bodegas
 -- presentan mayor actividad
