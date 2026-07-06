@@ -8,11 +8,9 @@ Additionally, a mock data layer is exposed through **json-server**, useful for v
 
 ## Technologies used
 
-- **SQL** (MySQL / PostgreSQL — adjust to the engine used) — modeling, tables, views, queries
-- **json-server** — mock server for testing JSON-formatted data
-- **Node.js / npm** — runtime environment for json-server
+- **SQL** (MySQL / PostgreSQL adjust to the engine used) — modeling, tables, views, queries
 - **DBeaver / pgAdmin / MySQL Workbench** (optional) — visual database administration
-- **Google spreadsheet** 
+- **Google spreadsheet** _ adjust and clean de data
 
 ## Installation
 
