@@ -4,7 +4,6 @@
 
 Solution that takes a "dirty" Excel file (inconsistencies, duplicates, irregular formats, empty cells, mixed data types, etc.), cleans and normalizes it, and migrates it into a relational database (SQL). On top of that database, normalized tables are built, the cleaned data is inserted, and queries, subqueries, and views are developed to analyze and consume the data.
 
-Additionally, a mock data layer is exposed through **json-server**, useful for validating the structure of the cleaned data before inserting it into SQL and for simulating query endpoints during development.
 
 ## Technologies used
 
