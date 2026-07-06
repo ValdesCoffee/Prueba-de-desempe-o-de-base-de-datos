@@ -171,17 +171,26 @@ ORDER BY total_comprado DESC;
 -- CONSULTA 4
 -- Como administrador de operaciones necesito conocer cuáles bodegas
 -- presentan mayor actividad
-SELECT * FROM movements_data
-SELECT suppliername, quantity FROM movements_data
-WHERE quantity > 160;
+SELECT
+    w.warehouse,
+    COUNT(*) AS total_movimientos
+FROM warehouse_data w
+JOIN movements_data m
+ON w.suppliername = m.suppliername
+GROUP BY w.warehouse
+ORDER BY total_movimientos DESC;
 -- CONSULTA 5
 -- Como analista necesito identificar cuál es el producto que genera la
 -- mayor rotación dentro de la organización
 
 SELECT * FROM products_name
 -- IDENTIFICO DE MEJOR DE MAYOR A MENOR TODO
-SELECT productname,quantity, unitprice FROM products_name
-ORDER BY quantity DESC;
+SELECT
+    productname,
+    SUM(quantity) AS total_movido
+FROM movements_data
+GROUP BY productname
+ORDER BY total_movido DESC;
 -- Bueno es el disco de corte 
 SELECT productname,quantity, unitprice FROM products_name
 WHERE quantity = 199;
@@ -189,10 +198,11 @@ WHERE quantity = 199;
 -- CONSULTA 6 
 -- Como gerente de operaciones necesito conocer el valor económico
 -- del inventario distribuido en cada bodega
-SELECT * FROM products_name p
-SELECT * FROM movements_data
-SELECT 
-SUM(quantity)AS total,
-FROM movements_data
-WHERE suppliername = 'industriales S.A.S'
-
+SELECT
+    w.warehouse,
+    SUM(m.quantity * m.unitprice) AS valor_inventario
+FROM warehouse_data w
+JOIN movements_data m
+ON w.suppliername = m.suppliername
+GROUP BY w.warehouse
+ORDER BY valor_inventario DESC;
