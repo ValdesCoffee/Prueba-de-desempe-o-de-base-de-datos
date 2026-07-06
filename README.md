@@ -28,32 +28,19 @@ npm install
 
 ## Running the project
 
-1. **Clean the data**
-   Run the cleaning script on the original Excel file:
-   ```bash
-   python scripts/clean_data.py --input data/raw/original_excel.xlsx --output data/clean/clean_data.csv
-   ```
-   This step fixes data types, removes duplicates, standardizes date/text formats, and handles null values.
-
-2. **Import data into SQL**
-   ```bash
-   python scripts/import_to_sql.py --input data/clean/clean_data.csv
-   ```
-   This script connects to the database and runs the bulk load of the already-cleaned records.
-
-3. **Create tables and insert data**
+1. **Create tables and insert data**
    ```bash
    psql -U user -d database_name -f sql/01_create_tables.sql
    psql -U user -d database_name -f sql/02_insert_data.sql
    ```
    (or the equivalent `mysql -u user -p database_name < file.sql` if using MySQL)
 
-4. **Run queries and subqueries**
+2. **Run queries and subqueries**
    ```bash
    psql -U user -d database_name -f sql/03_queries.sql
    ```
 
-5. **Create views**
+3. **Create views**
    ```bash
    psql -U user -d database_name -f sql/04_views.sql
    ```
