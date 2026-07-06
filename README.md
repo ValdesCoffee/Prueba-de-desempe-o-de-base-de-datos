@@ -71,7 +71,59 @@ project/
 ├── package.json
 └── README.md
 ```
+## SQL Queries
+- The project includes several SQL queries to demonstrate different database operations.
 
+Query 1
+
+Retrieves all records from a table.
+
+Query 2
+
+Filters records using the "WHERE" clause.
+
+Query 3
+
+Combines data from multiple tables using "INNER JOIN".
+
+Query 4
+
+Groups information using "GROUP BY" and aggregate functions.
+
+Query 5
+
+Orders the results using "ORDER BY".
+
+Query 6
+
+Uses aggregate functions such as "COUNT()", "SUM()", "AVG()", or "MAX()".
+
+Query 7
+
+Retrieves data using subqueries.
+
+Query 8
+
+Demonstrates advanced filtering and conditional logic.
+
+«Each query is documented with comments inside the corresponding SQL file explaining its purpose and expected output.»
+
+---
+
+Project Structure
+
+project/
+│
+├── README.md
+├── schema.sql
+├── data.sql
+├── queries.sql
+├── docs/
+│   └── ERD.png
+└── csv/
+    └── data.csv
+
+---
 
 ## Technical decisions
 
