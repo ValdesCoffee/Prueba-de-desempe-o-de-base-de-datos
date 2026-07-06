@@ -132,9 +132,13 @@ SELECT * FROM movements_data
 SELECT * FROM products_name
 --Como supervisor logístico necesito conocer los movimientos
 -- realizados en cada bodega y los productos involucrados.
-SELECT m.product_id, m.movementtype,p.productname
-FROM movements_data
-RIGHT JOIN products_name ON m.products_id = p.products_id;
+SELECT
+    m.product_id,
+    m.movementtype,
+    p.productname
+FROM movements_data m
+INNER JOIN products_name p
+ON m.product_id = p.product_id;
 -- CONSULTA 3
 SELECT * FROM movements_data
 -- rado por proveedor.
