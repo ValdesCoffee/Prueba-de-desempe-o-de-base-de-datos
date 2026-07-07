@@ -117,3 +117,6 @@ Demonstrates advanced filtering and conditional logic.
 - **Views instead of direct table access**: views allow control over which columns and which table combinations (via JOIN) are exposed to each role, improving security and maintainability.
 - **json-server as an intermediate validation layer**: used exclusively as a supporting tool to review the integrity of the cleaned data before the final migration to SQL, not as a replacement for the real database.
 - **Subqueries vs JOIN**: subqueries were used in cases requiring filtering over aggregates (e.g., records above an average), reserving JOINs for combining related information across tables.
+
+- CLAN 3
+- auri Valdes 
